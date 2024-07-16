@@ -8,42 +8,34 @@ export default function MainHeader() {
           NextPixel
         </Link>
       </div>
-      <div>
+      {/* <div>
         <input type="text" />
-      </div>
+      </div> */}
 
       <nav>
         <ul className="flex flex-row gap-5 items-end">
           <li>
             <Link
-              href="/browse"
+              href="/news"
               className=" p-4 pb-7 border-b-white hover:border-b-2 "
             >
-              Browse
+              News
             </Link>
           </li>
           <li>
             <Link
-              href="/browse"
+              href="/store"
               className=" p-4 pb-7 border-b-white hover:border-b-2"
             >
-              Browse
+              Store
             </Link>
           </li>
           <li>
             <Link
-              href="/browse"
+              href="/contact"
               className=" p-4 pb-7 border-b-white hover:border-b-2"
             >
-              Browse
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/browse"
-              className=" p-4 pb-7 border-b-white hover:border-b-2"
-            >
-              Browse
+              Contact Us
             </Link>
           </li>
         </ul>
