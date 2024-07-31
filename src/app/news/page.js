@@ -12,19 +12,19 @@ export default function NewsPage() {
       title: "News 1",
       date: "01/01/2024",
       content:
-        "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis dui augue arcu porttitor bibendum mus. Egestas viverra nec molestie malesuada suspendisse, felis vestibulum. Cubilia ac morbi hendrerit et fusce donec. Lorem mi in lobortis luctus id. Justo maximus erat nibh tortor ac class sit urna.",
+        "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis dui augue arcu porttitor bibendum mus. Egestas viverra nec molestie malesuada...",
     },
     {
       id: 2,
       title: "News 2",
       date: "01/02/2024",
-      content: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis dui augue arcu porttitor bibendum mus. Egestas viverra nec molestie malesuada suspendisse, felis vestibulum. Cubilia ac morbi hendrerit et fusce donec. Lorem mi in lobortis luctus id. Justo maximus erat nibh tortor ac class sit urna.",
+      content: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis dui augue arcu porttitor bibendum mus. Egestas viverra nec molestie malesuada...",
     },
     {
       id: 3,
       title: "News 3",
       date: "01/03/2024",
-      content: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis dui augue arcu porttitor bibendum mus. Egestas viverra nec molestie malesuada suspendisse, felis vestibulum. Cubilia ac morbi hendrerit et fusce donec. Lorem mi in lobortis luctus id. Justo maximus erat nibh tortor ac class sit urna.",
+      content: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis dui augue arcu porttitor bibendum mus. Egestas viverra nec molestie malesuada...",
     },
     {
       id: 4,
