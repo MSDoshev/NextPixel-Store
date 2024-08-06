@@ -45,3 +45,54 @@ export const DUMMY_NEWS = [
       "Landscape photography is a great way to capture the beauty of nature. It is also a great way to get outside and enjoy the great outdoors. So what are you waiting for? Get out there and start taking some pictures!",
   },
 ];
+export const DUMMY_GAMES = [
+  {
+    id: 1,
+    title: "Game 1",
+    price: "$59.99",
+    image: "/images/home/cover.jpg",
+    genre: ["Action", "Adventure"],
+  },
+  {
+    id: 2,
+    title: "Game 2",
+    price: "$49.99",
+    image: "/images/home/cover.jpg",
+    genre: ["Action", "Adventure"],
+  },
+  {
+    id: 3,
+    title: "Game 3",
+    price: "$49.99",
+    image: "/images/home/cover.jpg",
+    genre: ["Action"],
+  },
+  {
+    id: 4,
+    title: "Game 4",
+    price: "$49.99",
+    image: "/images/home/cover.jpg",
+    genre: ["Action", "Horror"],
+  },
+  {
+    id: 5,
+    title: "Game 5",
+    price: "$49.99",
+    image: "/images/home/cover.jpg",
+    genre: ["Acion", "Adventure", "RPG"],
+  },
+  {
+    id: 6,
+    title: "Game 6",
+    price: "$49.99",
+    image: "/images/home/cover.jpg",
+    genre: ["Simulation", "Strategy"],
+  },
+  {
+    id: 7,
+    title: "Game 7",
+    price: "$49.99",
+    image: "/images/home/cover.jpg",
+    genre: ["Action", "Adventure", "Simulation"],
+  },
+];

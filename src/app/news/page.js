@@ -1,7 +1,7 @@
 "use client";
 
 import PagePagination from "@/components/news/page-pagination.js";
-import { DUMMY_NEWS } from "../../../dummy-news.js";
+import { DUMMY_NEWS } from "../../../dummy-data";
 
 import React, { useState } from "react";
 import NewsList from "@/components/news/news-list.js";
