@@ -1,3 +1,5 @@
+import StoreSidebar from "@/components/store/store-sidebar";
+
 export default function BrowsePage() {
   const games = [
     {
@@ -46,44 +48,16 @@ export default function BrowsePage() {
 
   return (
     <div className="flex flex-row">
-      <div className="w-[20%] pl-10 bg-stone-100 pt-10">
-        <h3 className="font-bold text-xl">Categories</h3>
-        <ul className="flex flex-col gap-2 mt-5 w-[70%] ">
-          <li className="p-2 hover:text-blue-500 hover:bg-stone-200">
-            Some link
-          </li>
-          <li className="p-2 hover:text-blue-500 hover:bg-stone-200">
-            Some link
-          </li>
-          <li className="p-2 hover:text-blue-500 hover:bg-stone-200">
-            Some link
-          </li>
-          <li className="p-2 hover:text-blue-500 hover:bg-stone-200">
-            Some link
-          </li>
-          <li className="p-2 hover:text-blue-500 hover:bg-stone-200">
-            Some link
-          </li>
-          <li className="p-2 hover:text-blue-500 hover:bg-stone-200">
-            Some link
-          </li>
-          <li className="p-2 hover:text-blue-500 hover:bg-stone-200">
-            Some link
-          </li>
-          <li className="p-2 hover:text-blue-500 hover:bg-stone-200">
-            Some link
-          </li>
-          <li className="p-2 hover:text-blue-500 hover:bg-stone-200">
-            Some link
-          </li>
-        </ul>
-      </div>
+      <StoreSidebar />
 
       <div className="flex flex-col gap-10">
         <h1 className="flex justify-center items-center font-bold text-6xl pt-10">
           Pixel Store
         </h1>
-
+        {/* This should change with the category */}
+        <h2 className="font-bold text-2xl ml-8 border-b-[1px] border-black">
+          All games
+        </h2>
         <div className="flex justify-center items-center p-5 w-full">
           <ul className="flex flex-wrap gap-5 justify-start items-start max-w-[1280px]">
             {games.map((game) => (
