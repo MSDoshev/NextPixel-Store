@@ -42,7 +42,7 @@ export default function MainHeader() {
       </nav>
 
       <div className="flex gap-2">
-        <Link href="/browse">Login</Link> /<Link href="/browse">Register</Link>
+        <Link href="/login">Login</Link> /<Link href="/browse">Register</Link>
       </div>
     </header>
   );
