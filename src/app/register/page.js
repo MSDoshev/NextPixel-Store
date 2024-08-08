@@ -15,7 +15,7 @@ export default function RegisterPage() {
             id="name"
             name="name"
             placeholder="Ivan Ivanov"
-            className="w-full p-3  border-b border-stone-300 bg-stone-600 text-white focus:outline-none focus:border-blue-500"
+            className="w-full p-3  border-b border-stone-300 bg-stone-600 text-white focus:outline-none focus:border-sky-600"
           />
         </div>
         <div className="mb-4">
@@ -27,7 +27,7 @@ export default function RegisterPage() {
             id="email"
             name="email"
             placeholder="you@example.com"
-            className="w-full p-3  border-b border-stone-300 bg-stone-600 text-white focus:outline-none focus:border-blue-500"
+            className="w-full p-3  border-b border-stone-300 bg-stone-600 text-white focus:outline-none focus:border-sky-600"
           />
         </div>
 
@@ -40,7 +40,7 @@ export default function RegisterPage() {
             id="password"
             name="password"
             placeholder="********"
-            className="w-full p-3  border-b border-stone-300 bg-stone-600 text-white focus:outline-none focus:border-blue-500"
+            className="w-full p-3  border-b border-stone-300 bg-stone-600 text-white focus:outline-none focus:border-sky-600"
           />
         </div>
         <div className="mb-6">
@@ -52,13 +52,13 @@ export default function RegisterPage() {
             id="confirm-password"
             name="confirm-password"
             placeholder="********"
-            className="w-full p-3  border-b border-stone-300 bg-stone-600 text-white focus:outline-none focus:border-blue-500"
+            className="w-full p-3  border-b border-stone-300 bg-stone-600 text-white focus:outline-none focus:border-sky-600"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-3 rounded-lg font-bold hover:bg-blue-500 transition duration-300"
+          className="w-full bg-sky-600 text-white p-3 rounded-lg font-bold hover:bg-blue-500 transition duration-300"
         >
           Register
         </button>
