@@ -6,7 +6,7 @@ export default function StoreCards() {
       {DUMMY_GAMES.map((game) => (
         <li
           key={game.id}
-          className="flex flex-col w-[240px] h-[420px] rounded-lg items-center pt-5 pb-5 hover:border-stone-400 hover:border-[1px] hover:shadow-md shadow-black"
+          className="flex flex-col bg-stone-200 w-[240px] h-[420px] rounded-lg items-center pt-5 pb-5 hover:border-stone-400 hover:border-[1px] hover:shadow-md shadow-black"
         >
           <img
             src={game.image}
