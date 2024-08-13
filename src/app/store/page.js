@@ -1,5 +1,4 @@
 import StoreSidebar from "@/components/store/store-sidebar";
-import { DUMMY_GAMES } from "../../../dummy-data";
 import StoreCards from "@/components/store/store-cards";
 
 export default function BrowsePage() {
@@ -7,17 +6,17 @@ export default function BrowsePage() {
     <div className="flex flex-row">
       <StoreSidebar />
 
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-5 w-[80%] pb-5">
         <h1 className="flex justify-center items-center font-bold text-6xl pt-10">
           Pixel Store
         </h1>
         {/* This should change with the selected genre */}
-        <h2 className="font-bold text-2xl ml-8 border-b-[1px] border-black">
-          All games
-        </h2>
-        <div className="flex justify-center items-center p-5 w-full">
-          <StoreCards />
+        <div className="w-[80%] pl-5">
+          <h2 className="font-bold text-2xl border-b-[1px] border-black text-start mb-4">
+            All games
+          </h2>
         </div>
+        <StoreCards className="pl-10 w-[80%]"/>
       </div>
     </div>
   );

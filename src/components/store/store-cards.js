@@ -1,25 +1,40 @@
 import { DUMMY_GAMES } from "../../../dummy-data";
 
-export default function StoreCards() {
+export default function StoreCards({ className }) {
   return (
-    <ul className="flex flex-wrap gap-5 justify-start items-start max-w-[1280px]">
+    <ul className={`flex flex-col ${className}`}>
       {DUMMY_GAMES.map((game) => (
         <li
           key={game.id}
-          className="flex flex-col bg-stone-200 w-[240px] h-[420px] rounded-lg items-center pt-5 pb-5 hover:border-stone-400 hover:border-[1px] hover:shadow-md shadow-black"
+          className="relative flex flex-row gap-4 bg-white border overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer hover:z-10"
         >
           <img
             src={game.image}
             alt={game.title}
-            className="w-fit h-[240px] rounded-lg object-cover"
+            className="w-fit p-2 h-[180px] object-cover justify-center"
           />
-          <div className="mt-4 flex flex-col flex-grow justify-between text-center">
-            <h2 className="text-black font-bold text-xl">{game.title}</h2>
-            <p className="text-stone-600">{game.genre.join(", ")}</p>
-            <p className="text-stone-900 text-lg">{game.price}</p>
-            <button className="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500">
-              Add to Cart
-            </button>
+          <div className="flex flex-col flex-grow ">
+            <h2 className="text-xl font-semibold text-gray-800 pt-2">
+              {game.title}
+            </h2>
+            <p className="text-sm text-gray-600">
+              <span className="font-bold">Genre: </span>
+              {game.genre.join(", ")}
+            </p>
+            <p className="text-sm text-gray-600">
+              <span className="font-bold">Release Date: </span>
+              {game.date}
+            </p>
+            <p className="text-sm text-gray-600">
+              <span className="font-bold">Platform: </span>
+              {game.platform}
+            </p>
+            <div className="mt-auto flex flex-col items-end m-4">
+              <p className="text-lg font-medium text-gray-900">{game.price}</p>
+              <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
           </div>
         </li>
       ))}
