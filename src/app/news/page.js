@@ -1,6 +1,6 @@
 "use client";
 
-import PagePagination from "@/components/news/page-pagination.js";
+import PagePagination from "@/components/ui/page-pagination.js";
 import { DUMMY_NEWS } from "../../../dummy-data";
 
 import React, { useState } from "react";

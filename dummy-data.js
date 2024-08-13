@@ -51,6 +51,8 @@ export const DUMMY_GAMES = [
     title: "Game 1",
     price: "$59.99",
     image: "/images/home/cover.jpg",
+    date: "2022-07-01",
+    platform: "PC",
     genre: ["Action", "Adventure"],
   },
   {
@@ -58,6 +60,7 @@ export const DUMMY_GAMES = [
     title: "Game 2",
     price: "$49.99",
     image: "/images/home/cover.jpg",
+    date: "2022-07-01",
     genre: ["Action", "Adventure"],
   },
   {
@@ -65,6 +68,7 @@ export const DUMMY_GAMES = [
     title: "Game 3",
     price: "$49.99",
     image: "/images/home/cover.jpg",
+    date: "2022-07-01",
     genre: ["Action"],
   },
   {
@@ -72,6 +76,7 @@ export const DUMMY_GAMES = [
     title: "Game 4",
     price: "$49.99",
     image: "/images/home/cover.jpg",
+    date: "2022-07-01",
     genre: ["Action", "Horror"],
   },
   {
@@ -79,6 +84,7 @@ export const DUMMY_GAMES = [
     title: "Game 5",
     price: "$49.99",
     image: "/images/home/cover.jpg",
+    date: "2022-07-01",
     genre: ["Acion", "Adventure", "RPG"],
   },
   {
@@ -86,6 +92,7 @@ export const DUMMY_GAMES = [
     title: "Game 6",
     price: "$49.99",
     image: "/images/home/cover.jpg",
+    date: "2022-07-01",
     genre: ["Simulation", "Strategy"],
   },
   {
@@ -93,6 +100,7 @@ export const DUMMY_GAMES = [
     title: "Game 7",
     price: "$49.99",
     image: "/images/home/cover.jpg",
+    date: "2022-07-01",
     genre: ["Action", "Adventure", "Simulation"],
   },
 ];
