@@ -1,6 +1,6 @@
 export default function ContactPage() {
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center h-auto lg:h-[500px] w-full p-6 lg:p-10 bg-gray-100">
+    <div className="flex flex-col lg:flex-row justify-center items-center h-auto lg:h-[600px] w-full p-10 lg:p-10 bg-gray-100">
       <div className="flex flex-col w-full lg:w-1/3 justify-start items-start mb-10 lg:mb-0">
         <h2 className="text-3xl font-bold mb-4">Contacts</h2>
         <p className="mb-2">
