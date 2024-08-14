@@ -3,7 +3,7 @@ import StoreCards from "@/components/store/store-cards";
 
 export default function BrowsePage() {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row ">
       <StoreSidebar />
 
       <div className="flex flex-col gap-5 w-[80%] pb-5">

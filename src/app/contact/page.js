@@ -1,47 +1,57 @@
 export default function ContactPage() {
   return (
-    <div className="flex flex-row justify-center items-center h-[500px] w-[100%]">
-      <div className="flex flex-col w-[30%] justify-center items-start">
-        <h2 className="font-bold">Contacts</h2>
-        <p>
-          <span className="font-bold">Address: </span>Some Street 1, Some City,
+    <div className="flex flex-col lg:flex-row justify-center items-center h-auto lg:h-[500px] w-full p-6 lg:p-10 bg-gray-100">
+      <div className="flex flex-col w-full lg:w-1/3 justify-start items-start mb-10 lg:mb-0">
+        <h2 className="text-3xl font-bold mb-4">Contacts</h2>
+        <p className="mb-2">
+          <span className="font-bold">Address:</span> Some Street 1, Some City,
           Somelandia
         </p>
-        <p>
-          <span className="font-bold">Phone: </span>+1 (123) 456-789
+        <p className="mb-2">
+          <span className="font-bold">Phone:</span> +1 (123) 456-789
         </p>
-        <p>
-          <span className="font-bold">Email: </span>nextpixel@somemail.com
+        <p className="mb-2">
+          <span className="font-bold">Email:</span> nextpixel@somemail.com
         </p>
       </div>
 
-      <form className="flex flex-col justify-center items-start w-[50%] gap-3">
-        <h2 className="font-bold">Contact Form</h2>
-        <div className="flex flex-col gap-1 justify-center items-start">
-          <label htmlFor="names">Name</label>
+      <form className="flex flex-col w-full lg:w-1/2 bg-white p-6 rounded-lg shadow-lg space-y-4">
+        <h2 className="text-2xl font-bold mb-4">Contact Form</h2>
+        <div className="flex flex-col">
+          <label htmlFor="names" className="mb-2 text-lg font-medium">
+            Name
+          </label>
           <input
             type="text"
             id="names"
             name="names"
             placeholder="Ivan Ivanov"
-            className="border-b border-stone-100 rounded bg-stone-300 w-[600px]"
+            className="border border-gray-300 p-3 rounded-lg focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:outline-none transition duration-200 ease-in-out"
           />
         </div>
-        <div className="flex flex-col gap-1 justify-center items-start ">
-          <label htmlFor="email">Email</label>
+        <div className="flex flex-col">
+          <label htmlFor="email" className="mb-2 text-lg font-medium">
+            Email
+          </label>
           <input
-            type="text"
+            type="email"
             id="email"
             name="email"
             placeholder="ivan@examplemail.com"
-            className="border-b border-stone-100 rounded bg-stone-300 w-[600px]"
+            className="border border-gray-300 p-3 rounded-lg focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:outline-none transition duration-200 ease-in-out"
           />
         </div>
-        <div className="flex flex-col gap-2 justify-center items-start">
-          <label>Subject</label>
-          <textarea className="border-b border-stone-100 rounded bg-stone-300 w-[600px]"></textarea>
+        <div className="flex flex-col">
+          <label htmlFor="subject" className="mb-2 text-lg font-medium">
+            Subject
+          </label>
+          <textarea
+            id="subject"
+            placeholder="Enter your subject"
+            className="border border-gray-300 p-3 rounded-lg focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:outline-none transition duration-200 ease-in-out"
+          ></textarea>
         </div>
-        <button className="flex bg-sky-500 py-2 px-3 rounded-md justify-end items-end">
+        <button className="w-full bg-sky-500 text-white py-3 rounded-lg hover:bg-sky-600 transition duration-200 ease-in-out">
           Submit
         </button>
       </form>
