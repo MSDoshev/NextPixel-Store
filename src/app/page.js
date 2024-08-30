@@ -18,7 +18,7 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Game Title 1</h3>
                 <p className="text-gray-600 mb-4">$59.99</p>
-                <a href="/game/1" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Learn More</a>
+                <a href="/game/1" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Add to Cart</a>
               </div>
             </div>
             <div className="bg-white shadow-md rounded-lg overflow-hidden">
@@ -26,7 +26,7 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Game Title 2</h3>
                 <p className="text-gray-600 mb-4">$49.99</p>
-                <a href="/game/2" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Learn More</a>
+                <a href="/game/2" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Add to Cart</a>
               </div>
             </div>
             <div className="bg-white shadow-md rounded-lg overflow-hidden">
@@ -34,7 +34,7 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Game Title 3</h3>
                 <p className="text-gray-600 mb-4">$39.99</p>
-                <a href="/game/3" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Learn More</a>
+                <a href="/game/3" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Add to Cart</a>
               </div>
             </div>
           </div>

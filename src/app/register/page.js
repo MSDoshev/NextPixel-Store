@@ -1,7 +1,14 @@
+"use client";
+import { useFormState } from "react-dom";
+import { signup } from "../../../actions/auth-actions";
 export default function RegisterPage() {
+  const [formState, formAction] = useFormState(signup, {});
   return (
     <div className="flex justify-center items-center h-screen">
-      <form className="bg-stone-600 p-10 rounded-lg shadow-lg w-full max-w-sm">
+      <form
+        action={formAction}
+        className="bg-stone-600 p-10 rounded-lg shadow-lg w-full max-w-sm"
+      >
         <h2 className="text-3xl font-bold text-white text-center mb-6">
           Register
         </h2>
@@ -55,7 +62,13 @@ export default function RegisterPage() {
             className="w-full p-3  border-b border-stone-300 bg-stone-600 text-white focus:outline-none focus:border-sky-600"
           />
         </div>
-
+        {formState.errors && (
+          <ul>
+            {Object.keys(formState.errors).map((error) => (
+              <li key={error}>{formState.errors[error]}</li>
+            ))}
+          </ul>
+        )}
         <button
           type="submit"
           className="w-full bg-sky-600 text-white p-3 rounded-lg font-bold hover:bg-blue-500 transition duration-300"
