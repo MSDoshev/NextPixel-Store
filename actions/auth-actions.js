@@ -1,33 +1,15 @@
 "use server";
 import validator from "validator";
 
+const passwordRegex =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
 function validatePassword(password) {
-  const minLength = 8;
-
-  if (password.length < minLength) {
-    throw new Error(`Password must be at least ${minLength} characters long.`);
+  if (!passwordRegex.test(password)) {
+    throw new Error(
+      "Password must be at least 8 characters and include uppercase, lowercase, digit, and special character."
+    );
   }
-
-  if (!/[A-Z]/.test(password)) {
-    throw new Error("Password must contain at least one uppercase letter.");
-  }
-
-  if (!/[a-z]/.test(password)) {
-    throw new Error("Password must contain at least one lowercase letter.");
-  }
-
-  if (!/[0-9]/.test(password)) {
-    throw new Error("Password must contain at least one digit.");
-  }
-
-  if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-    throw new Error("Password must contain at least one special character.");
-  }
-
-  if (/\s/.test(password)) {
-    throw new Error("Password must not contain any whitespace.");
-  }
-
   return true;
 }
 
