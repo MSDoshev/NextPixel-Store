@@ -20,8 +20,6 @@ export async function signup(prevState, formData) {
   const email = formData.get("email");
   const password = formData.get("password");
   const repeatPassword = formData.get("confirm-password");
-  console.log(`Password: ${password}`);
-  console.log(`Repeat-Password: ${repeatPassword}`);
 
   let errors = {};
   if (!validator.isEmail(email)) {
@@ -50,12 +48,13 @@ export async function signup(prevState, formData) {
     if (error.message === "DUPLICATE_EMAIL") {
       return {
         errors: {
-          email: "Email is already in use.",
+          email:
+            "An account with this email already exists. Please try another email or log in.",
         },
       };
     }
     throw error;
   }
 
-  redirect('/')
+  redirect("/");
 }

@@ -8,13 +8,13 @@ export async function createUser(email, password) {
 
     const existingUser = await usersCollection.findOne({ email });
     if (existingUser) {
-      throw new Error("User already exists.");
+      throw new Error("DUPLICATE_EMAIL");
     }
 
     const result = await usersCollection.insertOne({ email, password });
     return result.insertedId;
   } catch (error) {
-    if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
+    if (error.message === "DUPLICATE_EMAIL") {
       throw new Error("DUPLICATE_EMAIL");
     } else {
       console.error("Error creating user:", error);
