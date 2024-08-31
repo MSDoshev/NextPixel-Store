@@ -1,6 +1,7 @@
 "use server";
 import { hashUserPassword } from "@/lib/hash";
 import { createUser } from "@/lib/user";
+import { redirect } from "next/navigation";
 import validator from "validator";
 
 const passwordRegex =
@@ -43,5 +44,18 @@ export async function signup(prevState, formData) {
     };
   }
   const hashedPassword = hashUserPassword(password);
-  createUser(email, hashedPassword);
+  try {
+    await createUser(email, hashedPassword);
+  } catch (error) {
+    if (error.message === "DUPLICATE_EMAIL") {
+      return {
+        errors: {
+          email: "Email is already in use.",
+        },
+      };
+    }
+    throw error;
+  }
+
+  redirect('/')
 }
