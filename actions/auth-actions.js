@@ -1,4 +1,5 @@
 "use server";
+import { createUser } from "@/lib/user";
 import validator from "validator";
 
 const passwordRegex =
@@ -41,5 +42,5 @@ export async function signup(prevState, formData) {
     };
   }
 
-  //next store it in DB
+  createUser(email, password);
 }
