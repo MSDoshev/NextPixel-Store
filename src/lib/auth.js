@@ -1,12 +1,13 @@
 import lucia from "lucia-auth";
-import { customMongoDBAdapter } from "./mongodbAdapter"; // Import your custom adapter
+import { customMongoDBAdapter } from "./mongodbAdapter"; 
 import { cookies } from "next/headers";
 
 // Initialize Lucia with the custom MongoDB adapter
 const auth = lucia({
-  adapter: customMongoDBAdapter, // Pass the function itself, not the result of the function
+  adapter: customMongoDBAdapter, 
   env: process.env.NODE_ENV === "production" ? "PROD" : "DEV",
   sessionCookie: {
+    secure: process.env.NODE_ENV === "production",
     secure: process.env.NODE_ENV === "production",
   },
 });
@@ -21,4 +22,5 @@ export async function createAuthSession(userId) {
   );
 }
 
+export default auth;
 export default auth;
