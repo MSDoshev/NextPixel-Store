@@ -12,6 +12,7 @@ export async function createUser(email, password) {
     }
 
     const result = await usersCollection.insertOne({ email, password });
+
     return result.insertedId;
   } catch (error) {
     if (error.message === "DUPLICATE_EMAIL") {

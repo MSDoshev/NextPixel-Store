@@ -1,4 +1,5 @@
 "use server";
+import { createAuthSession } from "@/lib/auth";
 import { hashUserPassword } from "@/lib/hash";
 import { createUser } from "@/lib/user";
 import { redirect } from "next/navigation";
@@ -43,7 +44,9 @@ export async function signup(prevState, formData) {
   }
   const hashedPassword = hashUserPassword(password);
   try {
-    await createUser(email, hashedPassword);
+    const id = await createUser(email, hashedPassword);
+    await createAuthSession(id);
+    redirect("/");
   } catch (error) {
     if (error.message === "DUPLICATE_EMAIL") {
       return {
@@ -55,6 +58,4 @@ export async function signup(prevState, formData) {
     }
     throw error;
   }
-
-  redirect("/");
 }
