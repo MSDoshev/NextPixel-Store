@@ -26,50 +26,45 @@ export default function ProfileGeneral() {
     }
   };
 
-
-
-
   return (
-    <div className="flex flex-row justify-center min-h-[800px]">
-      <div className="flex flex-row justify-center bg-white m-10 w-[60%] rounded-lg">
-        <div className="flex justify-center items-start w-[35%] bg-stone-200 rounded-l-lg">
-          <UnorderedList>
-            <ListItem
-              className={`font-semibold ${
-                activeTab === "Profile" ? "text-blue-500" : ""
-              }`}
-              onClick={() => setActiveTab("Profile")}
-            >
-              Profile
-            </ListItem>
-            <ListItem
-              className={`font-semibold ${
-                activeTab === "Wishlist" ? "text-blue-500" : ""
-              }`}
-              onClick={() => setActiveTab("Wishlist")}
-            >
-              Wishlist
-            </ListItem>
-            <ListItem
-              className={`font-semibold ${
-                activeTab === "Purchase History" ? "text-blue-500" : ""
-              }`}
-              onClick={() => setActiveTab("Purchase History")}
-            >
-              Purchase History
-            </ListItem>
-            <ListItem
-              className={`font-semibold ${
-                activeTab === "Settings" ? "text-blue-500" : ""
-              }`}
-              onClick={() => setActiveTab("Settings")}
-            >
-              Settings
-            </ListItem>
-          </UnorderedList>
-        </div>
-       {renderContent()}
+    <div className="flex flex-row justify-center bg-white w-full">
+      <div className="flex basis-1/4 justify-center items-start bg-stone-200">
+        <UnorderedList className="w-[25%]">
+          <ListItem
+            className={`font-semibold ${
+              activeTab === "Profile" ? "text-blue-500" : ""
+            }`}
+            onClick={() => setActiveTab("Profile")}
+          >
+            Profile
+          </ListItem>
+          <ListItem
+            className={`font-semibold ${
+              activeTab === "Wishlist" ? "text-blue-500" : ""
+            }`}
+            onClick={() => setActiveTab("Wishlist")}
+          >
+            Wishlist
+          </ListItem>
+          <ListItem
+            className={`font-semibold ${
+              activeTab === "Purchase History" ? "text-blue-500" : ""
+            }`}
+            onClick={() => setActiveTab("Purchase History")}
+          >
+            Purchase History
+          </ListItem>
+          <ListItem
+            className={`font-semibold ${
+              activeTab === "Settings" ? "text-blue-500" : ""
+            }`}
+            onClick={() => setActiveTab("Settings")}
+          >
+            Settings
+          </ListItem>
+        </UnorderedList>
       </div>
+      {renderContent()}
     </div>
   );
 }

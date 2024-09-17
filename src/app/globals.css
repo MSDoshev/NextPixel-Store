@@ -26,8 +26,8 @@
     rgb(var(--background-start-rgb));
 } */
 body {
-  background-image: url("https://t3.ftcdn.net/jpg/02/42/75/76/360_F_242757656_LYhzT9Kzxb5XdOsNY6SYSyroxMzZBeRN.jpg");
-  background-size: cover;
+  /* background-image: url("https://t3.ftcdn.net/jpg/02/42/75/76/360_F_242757656_LYhzT9Kzxb5XdOsNY6SYSyroxMzZBeRN.jpg");
+  background-size: cover; */
   background-repeat: no-repeat;
   background-attachment: fixed;
 }

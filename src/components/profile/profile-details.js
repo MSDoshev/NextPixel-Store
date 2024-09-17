@@ -1,6 +1,6 @@
 export default function ProfileDetails() {
   return (
-    <div className="p-10 w-[90%] max-w-2xl mx-auto bg-white">
+    <div className="p-10 w-full max-w-2xl mx-auto bg-white">
       <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">Profile</h1>
 
       <div className="flex flex-col items-center">
