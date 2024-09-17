@@ -23,3 +23,13 @@ export async function createUser(email, password) {
     }
   }
 }
+
+export async function getUserByEmail(email) {
+  const client = await clientPromise;
+  const db = client.db("nextPixelDB");
+  const usersCollection = db.collection("users");
+
+  const existingUser = await usersCollection.findOne({ email });
+  console.log(existingUser);
+  return existingUser;
+}
