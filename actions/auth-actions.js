@@ -1,5 +1,5 @@
 "use server";
-import { createAuthSession } from "@/lib/auth";
+import { createAuthSession, destroySession } from "@/lib/auth";
 import { hashUserPassword, verifyPassword } from "@/lib/hash";
 import { createUser, getUserByEmail } from "@/lib/user";
 import { redirect } from "next/navigation";
@@ -86,5 +86,10 @@ export async function login(prevState, formData) {
 
   await createAuthSession(existingUser._id);
 
+  redirect("/");
+}
+
+export async function logout() {
+  await destroySession();
   redirect("/");
 }
