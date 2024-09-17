@@ -1,7 +1,7 @@
 "use server";
 import { createAuthSession } from "@/lib/auth";
 import { hashUserPassword } from "@/lib/hash";
-import { createUser } from "@/lib/user";
+import { createUser } from "@/lib/createUser";
 import { redirect } from "next/navigation";
 import validator from "validator";
 
