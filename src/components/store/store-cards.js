@@ -1,9 +1,11 @@
-import { DUMMY_GAMES } from "../../../dummy-data";
+import { getStoreGames } from "@/lib/store-games";
 
-export default function StoreCards({ className }) {
+export default async function StoreCards({ className }) {
+  const games = await getStoreGames(); 
+
   return (
     <ul className={`flex flex-col ${className}`}>
-      {DUMMY_GAMES.map((game) => (
+      {games.map((game) => (
         <li
           key={game.id}
           className="relative flex flex-row gap-4 bg-white border overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer hover:z-10"
@@ -19,18 +21,18 @@ export default function StoreCards({ className }) {
             </h2>
             <p className="text-sm text-gray-600">
               <span className="font-bold">Genre: </span>
-              {game.genre.join(", ")}
+              {game.genre}
             </p>
             <p className="text-sm text-gray-600">
               <span className="font-bold">Release Date: </span>
-              {game.date}
+              {game.releaseDate}
             </p>
             <p className="text-sm text-gray-600">
               <span className="font-bold">Platform: </span>
               {game.platform}
             </p>
             <div className="mt-auto flex flex-col items-end m-4">
-              <p className="text-lg font-medium text-gray-900">{game.price}</p>
+              <p className="text-lg font-medium text-gray-900">${game.price}</p>
               <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">
                 Add to Cart
               </button>

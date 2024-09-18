@@ -7,6 +7,7 @@ export default async function getDb() {
   return {
     usersCollection: db.collection("users"),
     sessionsCollection: db.collection("sessions"),
+    gamesCollection: db.collection("games")
   };
 }
 

@@ -1,17 +1,22 @@
 import Checkbox from "../ui/Checkbox";
 
 export default function StoreSidebar() {
-  // Alphabetical list of game genres
   const genres = [
     "Action",
     "Adventure",
-    "Casual",
-    "Indie",
-    "MMO",
+    "Battle Royale",
+    "Card Game",
+    "Platformer",
+    "Puzzle",
     "RPG",
+    "Roguelike",
+    "Shooter",
     "Simulation",
+    "Sandbox",
     "Sports",
     "Strategy",
+    "Survival",
+    "Party",
   ];
 
   const platforms = ["Steam", "Xbox", "Nintendo", "PlayStation"];
@@ -22,7 +27,12 @@ export default function StoreSidebar() {
         <h3 className="font-bold text-xl mb-4">Categories</h3>
         <form className="space-y-3">
           {genres.map((genre) => (
-            <Checkbox key={genre} id={genre.toLowerCase()} name="genre" value={genre}>
+            <Checkbox
+              key={genre}
+              id={genre.toLowerCase()}
+              name="genre"
+              value={genre}
+            >
               {genre}
             </Checkbox>
           ))}
@@ -50,7 +60,12 @@ export default function StoreSidebar() {
         <h3 className="font-bold text-xl mb-4">Platform</h3>
         <div className="flex flex-col space-y-3">
           {platforms.map((platform) => (
-            <Checkbox key={platform} id={platform.toLowerCase()} name="platform" value={platform}>
+            <Checkbox
+              key={platform}
+              id={platform.toLowerCase()}
+              name="platform"
+              value={platform}
+            >
               {platform}
             </Checkbox>
           ))}
