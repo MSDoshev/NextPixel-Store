@@ -1,6 +1,9 @@
+import { useFilter } from "@/context/FilterContext";
 import Checkbox from "../ui/Checkbox";
 
 export default function StoreSidebar() {
+  const { filters, setFilters } = useFilter();
+
   const genres = [
     "Action",
     "Adventure",
@@ -19,7 +22,29 @@ export default function StoreSidebar() {
     "Party",
   ];
 
-  const platforms = ["Steam", "Xbox", "Nintendo", "PlayStation"];
+  const platforms = ["Steam", "Xbox", "Nintendo", "PlayStation", "PC"];
+
+  const handleCheckboxChange = (event) => {
+    console.log("Checkbox changed:", event.target); 
+    const { name, value, checked } = event.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: checked
+        ? [...prevFilters[name], value]
+        : prevFilters[name].filter((item) => item !== value),
+    }));
+  };
+
+  const handlePriceChange = (e) => {
+    const { value, placeholder } = e.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      priceRange:
+        placeholder === "From"
+          ? [parseFloat(value) || 0, prevFilters.priceRange[1]]
+          : [prevFilters.priceRange[0], parseFloat(value) || Infinity],
+    }));
+  };
 
   return (
     <div className="w-[25%] bg-stone-100 pt-10">
@@ -30,8 +55,10 @@ export default function StoreSidebar() {
             <Checkbox
               key={genre}
               id={genre.toLowerCase()}
-              name="genre"
+              name="genres"
               value={genre}
+              onChange={handleCheckboxChange}
+              checked={filters.genres.includes(genre)}
             >
               {genre}
             </Checkbox>
@@ -46,12 +73,14 @@ export default function StoreSidebar() {
             type="number"
             className="w-[30%] h-[30px] pl-2"
             placeholder="From"
+            onChange={handlePriceChange}
           />
           <span>-</span>
           <input
             type="number"
             className="w-[30%] h-[30px] pl-2"
             placeholder="To"
+            onChange={handlePriceChange}
           />
         </div>
       </form>
@@ -63,8 +92,10 @@ export default function StoreSidebar() {
             <Checkbox
               key={platform}
               id={platform.toLowerCase()}
-              name="platform"
+              name="platforms"
               value={platform}
+              onChange={handleCheckboxChange}
+              checked={filters.platforms.includes(platform)}
             >
               {platform}
             </Checkbox>

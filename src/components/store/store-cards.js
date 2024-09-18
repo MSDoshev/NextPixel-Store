@@ -1,13 +1,41 @@
-import { getStoreGames } from "@/lib/store-games";
 
-export default async function StoreCards({ className }) {
-  const games = await getStoreGames(); 
+"use client"; 
+
+import { useEffect, useState } from 'react';
+import { useFilter } from '@/context/FilterContext';
+
+export default function StoreCards({ className }) {
+  const { filters } = useFilter();
+  const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      const response = await fetch('/api/games');
+      const allGames = await response.json();
+      
+      console.log("Filters:", filters); 
+
+      const filteredGames = allGames.filter(game => {
+        const isGenreMatch = filters.genres.length === 0 || filters.genres.includes(game.genre);
+        const isPlatformMatch = filters.platforms.length === 0 || filters.platforms.includes(game.platform);
+        const isPriceMatch = game.price >= filters.priceRange[0] && game.price <= filters.priceRange[1];
+
+       
+        console.log("Matches:", isGenreMatch, isPlatformMatch, isPriceMatch); 
+        return isGenreMatch && isPlatformMatch && isPriceMatch;
+      });
+
+      setGames(filteredGames);
+    };
+
+    fetchGames();
+  }, [filters]);
 
   return (
     <ul className={`flex flex-col ${className}`}>
       {games.map((game) => (
         <li
-          key={game.id}
+          key={game._id}
           className="relative flex flex-row gap-4 bg-white border overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer hover:z-10"
         >
           <img
@@ -15,7 +43,7 @@ export default async function StoreCards({ className }) {
             alt={game.title}
             className="w-fit p-2 h-[180px] object-cover justify-center"
           />
-          <div className="flex flex-col flex-grow ">
+          <div className="flex flex-col flex-grow">
             <h2 className="text-xl font-semibold text-gray-800 pt-2">
               {game.title}
             </h2>

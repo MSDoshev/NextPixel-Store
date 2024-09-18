@@ -19,7 +19,6 @@ export default function ProfileGeneral() {
       case "Purchase History":
         return <PurchaseHistory />;
       case "Settings":
-        // Assuming you have a Settings component
         return <div>Settings Component</div>;
       default:
         return <ProfileDetails />;
