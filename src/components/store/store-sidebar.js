@@ -25,13 +25,20 @@ export default function StoreSidebar() {
   const platforms = ["Steam", "Xbox", "Nintendo", "PlayStation", "PC"];
 
   const handleCheckboxChange = (event) => {
-    console.log("Checkbox changed:", event.target); 
+    console.log("Checkbox changed:", event.target);
     const { name, value, checked } = event.target;
     setFilters((prevFilters) => ({
       ...prevFilters,
       [name]: checked
         ? [...prevFilters[name], value]
         : prevFilters[name].filter((item) => item !== value),
+    }));
+  };
+  const handleSearchChange = (event) => {
+    const { value } = event.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      searchQuery: value,
     }));
   };
 
@@ -48,6 +55,16 @@ export default function StoreSidebar() {
 
   return (
     <div className="w-[25%] bg-stone-100 pt-10">
+      <div className="px-[20px]">
+        <h3 className="font-bold text-xl mb-4">Search</h3>
+        <input
+          type="text"
+          placeholder="Search games"
+          value={filters.searchQuery}
+          onChange={handleSearchChange}
+          className="w-full h-[30px] pl-2 mb-6"
+        />
+      </div>
       <div className="pl-[20px]">
         <h3 className="font-bold text-xl mb-4">Categories</h3>
         <form className="space-y-3">

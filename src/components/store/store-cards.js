@@ -1,8 +1,7 @@
+"use client";
 
-"use client"; 
-
-import { useEffect, useState } from 'react';
-import { useFilter } from '@/context/FilterContext';
+import { useEffect, useState } from "react";
+import { useFilter } from "@/context/FilterContext";
 
 export default function StoreCards({ className }) {
   const { filters } = useFilter();
@@ -10,19 +9,36 @@ export default function StoreCards({ className }) {
 
   useEffect(() => {
     const fetchGames = async () => {
-      const response = await fetch('/api/games');
+      const response = await fetch("/api/games");
       const allGames = await response.json();
-      
-      console.log("Filters:", filters); 
 
-      const filteredGames = allGames.filter(game => {
-        const isGenreMatch = filters.genres.length === 0 || filters.genres.includes(game.genre);
-        const isPlatformMatch = filters.platforms.length === 0 || filters.platforms.includes(game.platform);
-        const isPriceMatch = game.price >= filters.priceRange[0] && game.price <= filters.priceRange[1];
+      console.log("Filters:", filters);
 
-       
-        console.log("Matches:", isGenreMatch, isPlatformMatch, isPriceMatch); 
-        return isGenreMatch && isPlatformMatch && isPriceMatch;
+      const filteredGames = allGames.filter((game) => {
+        const isSearchMatch = filters.searchQuery
+          ? game.title.toLowerCase().includes(filters.searchQuery.toLowerCase())
+          : true;
+
+        const isGenreMatch =
+          filters.genres.length === 0 || filters.genres.includes(game.genre);
+
+        const isPlatformMatch =
+          filters.platforms.length === 0 ||
+          filters.platforms.includes(game.platform);
+
+        const isPriceMatch =
+          game.price >= filters.priceRange[0] &&
+          game.price <= filters.priceRange[1];
+
+        console.log(
+          "Matches:",
+          isSearchMatch,
+          isGenreMatch,
+          isPlatformMatch,
+          isPriceMatch
+        );
+
+        return isSearchMatch && isGenreMatch && isPlatformMatch && isPriceMatch;
       });
 
       setGames(filteredGames);
@@ -30,7 +46,6 @@ export default function StoreCards({ className }) {
 
     fetchGames();
   }, [filters]);
-
   return (
     <ul className={`flex flex-col ${className}`}>
       {games.map((game) => (

@@ -10,6 +10,7 @@ export function FilterProvider({ children }) {
     genres: [],
     platforms: [],
     priceRange: [0, Infinity],
+    searchQuery: ""
   });
 
   return (
