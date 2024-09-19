@@ -1,7 +1,9 @@
-export default function ProfileDetails() {
+export default function ProfileDetails({ user }) {
   return (
     <div className="p-10 w-full max-w-2xl mx-auto bg-white">
-      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">Profile</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
+        Profile
+      </h1>
 
       <div className="flex flex-col items-center">
         <img
@@ -9,25 +11,31 @@ export default function ProfileDetails() {
           alt="Profile"
           className="w-32 h-32 rounded-full mb-6 shadow-md"
         />
-        <h2 className="text-2xl font-semibold text-gray-800">Username</h2>
-        <p className="text-gray-500">user@example.com</p>
+        {/* <h2 className="text-2xl font-semibold text-gray-800">{user.name}</h2>
+        <p className="text-gray-500">{user.email}</p> */}
 
         <div className="flex flex-col w-full mt-8 space-y-6">
           <div className="flex justify-between items-center border-b pb-2">
-            <span className="font-semibold text-gray-700 w-1/3">Full Name:</span>
-            <span className="text-gray-600 w-2/3 text-right">John Doe</span>
+            <span className="font-semibold text-gray-700 w-1/3">
+              Full Name:
+            </span>
+            <span className="text-gray-600 w-2/3 text-right">{user.name}</span>
           </div>
           <div className="flex justify-between items-center border-b pb-2">
             <span className="font-semibold text-gray-700 w-1/3">Email:</span>
-            <span className="text-gray-600 w-2/3 text-right">user@example.com</span>
+            <span className="text-gray-600 w-2/3 text-right">{user.email}</span>
           </div>
-          <div className="flex justify-between items-center border-b pb-2">
+          {/* <div className="flex justify-between items-center border-b pb-2">
             <span className="font-semibold text-gray-700 w-1/3">Location:</span>
             <span className="text-gray-600 w-2/3 text-right">Somelandia</span>
-          </div>
+          </div> */}
           <div className="flex justify-between items-center border-b pb-2">
-            <span className="font-semibold text-gray-700 w-1/3">Member Since:</span>
-            <span className="text-gray-600 w-2/3 text-right">January 2023</span>
+            <span className="font-semibold text-gray-700 w-1/3">
+              Member Since:
+            </span>
+            <span className="text-gray-600 w-2/3 text-right">
+              {user.memberSince}
+            </span>
           </div>
         </div>
 

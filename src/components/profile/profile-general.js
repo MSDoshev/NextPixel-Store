@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import ProfileDetails from "@/components/profile/profile-details";
 import PurchaseHistory from "@/components/profile/purchase-history";
@@ -7,13 +6,15 @@ import Wishlist from "@/components/profile/wishlist";
 import ListItem from "@/components/ui/ListItem";
 import UnorderedList from "@/components/ui/UnorderedList";
 
-export default function ProfileGeneral() {
+export default function ProfileGeneral({user}) {
   const [activeTab, setActiveTab] = useState("Profile");
+
+  console.log(`This is the current user: ` + user.name);
 
   const renderContent = () => {
     switch (activeTab) {
       case "Profile":
-        return <ProfileDetails />;
+        return <ProfileDetails user={user}/>;
       case "Wishlist":
         return <Wishlist />;
       case "Purchase History":

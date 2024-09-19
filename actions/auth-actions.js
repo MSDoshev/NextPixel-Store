@@ -18,6 +18,7 @@ function validatePassword(password) {
 }
 
 export async function signup(prevState, formData) {
+  const name = formData.get("name");
   const email = formData.get("email");
   const password = formData.get("password");
   const repeatPassword = formData.get("confirm-password");
@@ -44,7 +45,7 @@ export async function signup(prevState, formData) {
   }
   const hashedPassword = hashUserPassword(password);
   try {
-    const id = await createUser(email, hashedPassword);
+    const id = await createUser(name, email, hashedPassword);
     await createAuthSession(id);
     redirect("/");
   } catch (error) {

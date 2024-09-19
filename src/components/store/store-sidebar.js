@@ -54,7 +54,7 @@ export default function StoreSidebar() {
   };
 
   return (
-    <div className="w-[25%] bg-stone-100 pt-10">
+    <div className="w-[25%] bg-stone-100 py-10">
       <div className="px-[20px]">
         <h3 className="font-bold text-xl mb-4">Search</h3>
         <input

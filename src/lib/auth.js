@@ -88,3 +88,13 @@ export async function destroySession() {
     sessionCookie.attributes
   );
 }
+
+export async function getSession() {
+  const lucia = await getLuciaInstance();
+  const { session, user } = await verifyAuth();
+  if (!session) {
+    return { error: "Unauthorized!" };
+  }
+  return { userId: user.id.toString() }; 
+}
+
