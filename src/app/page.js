@@ -3,7 +3,6 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="relative flex flex-col">
-      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
         style={{
@@ -12,10 +11,8 @@ export default function Home() {
         }}
       ></div>
 
-      {/* Overlay (to darken the background) */}
       <div className="absolute inset-0 bg-black opacity-50 z-20"></div>
 
-      {/* Hero Content on Top */}
       <div className="relative z-20 text-white flex flex-col items-center justify-center h-[600px]">
         <h1 className="text-5xl font-bold mb-4">Welcome to NextPixel</h1>
         <p className="text-xl mb-6">
@@ -30,15 +27,12 @@ export default function Home() {
         <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-b from-transparent to-gray-800 backdrop-blur-sm"></div>
       </div>
 
-      {/* Blurred Gradient Transition to Next Section */}
       <section className="relative z-20">
-        {/* Next Section Content */}
         <div className="relative z-20 py-12 px-4 md:px-8 bg-gray-800">
           <h2 className="text-4xl font-bold text-center mb-8 text-white">
             Featured Games
           </h2>
           <div className="max-w-7xl mx-auto">
-            {/* Add game cards or other content here */}
             <ul className="flex flex-row">
               <div className="max-w-xs mx-auto bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
                 {/* Game Cover Image */}

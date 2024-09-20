@@ -1,15 +1,33 @@
+"use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function CartDropdown() {
+  const [cartItems, setCartItems] = useState([]);
 
-  let totalItems = 0;
-  let cartItems = [];
+  const fetchCartItems = () => {
+    const storedCartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartItems(storedCartItems);
+  };
 
-  // if (result.user) {
-  //   cartItems = await getCart(result.user.id); // Fetch cart items
-  //   totalItems = cartItems.length;
-  // }
+  useEffect(() => {
+    fetchCartItems();
 
+    const handleCartUpdate = () => {
+      fetchCartItems();
+    };
+
+    window.addEventListener("cartUpdated", handleCartUpdate);
+
+    return () => {
+      window.removeEventListener("cartUpdated", handleCartUpdate);
+    };
+  }, []);
+
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   return (
     <div className="relative group">
@@ -25,7 +43,7 @@ export default function CartDropdown() {
                 className="flex justify-between py-2 border-b border-gray-600"
               >
                 <span>{item.name}</span>
-                <span>{item.quantity}</span>
+                <span>x{item.quantity}</span>
               </div>
             ))}
           </div>

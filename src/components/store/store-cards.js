@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { useFilter } from "@/context/FilterContext";
 
@@ -30,14 +29,6 @@ export default function StoreCards({ className }) {
           game.price >= filters.priceRange[0] &&
           game.price <= filters.priceRange[1];
 
-        console.log(
-          "Matches:",
-          isSearchMatch,
-          isGenreMatch,
-          isPlatformMatch,
-          isPriceMatch
-        );
-
         return isSearchMatch && isGenreMatch && isPlatformMatch && isPriceMatch;
       });
 
@@ -46,6 +37,24 @@ export default function StoreCards({ className }) {
 
     fetchGames();
   }, [filters]);
+
+  const addToCart = (game) => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingItem = cart.find((item) => item.id === game._id);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({ id: game._id, name: game.title, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    const cartUpdatedEvent = new Event("cartUpdated");
+    window.dispatchEvent(cartUpdatedEvent);
+  };
+
   return (
     <ul className={`flex flex-col ${className}`}>
       {games.map((game) => (
@@ -76,7 +85,10 @@ export default function StoreCards({ className }) {
             </p>
             <div className="mt-auto flex flex-col items-end m-4">
               <p className="text-lg font-medium text-gray-900">${game.price}</p>
-              <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300">
+              <button
+                onClick={() => addToCart(game)}
+                className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300"
+              >
                 Add to Cart
               </button>
             </div>
