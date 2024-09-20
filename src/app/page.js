@@ -1,81 +1,79 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-gray-900 to-gray-700 text-white h-80 flex flex-col items-center justify-center text-center">
+    <div className="relative flex flex-col">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{
+          backgroundImage: "url('/images/home/background.png')",
+          height: "600px",
+        }}
+      ></div>
+
+      {/* Overlay (to darken the background) */}
+      <div className="absolute inset-0 bg-black opacity-50 z-20"></div>
+
+      {/* Hero Content on Top */}
+      <div className="relative z-20 text-white flex flex-col items-center justify-center h-[600px]">
         <h1 className="text-5xl font-bold mb-4">Welcome to NextPixel</h1>
-        <p className="text-xl mb-6">Explore the latest and greatest video games all in one place.</p>
-        <a href="/shop" className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-400 transition duration-300">Shop Now</a>
+        <p className="text-xl mb-6">
+          Explore the latest and greatest video games all in one place.
+        </p>
+        <a
+          href="/store"
+          className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-400 transition duration-300"
+        >
+          Shop Now
+        </a>
+        <div className="absolute inset-x-0 bottom-0 h-[50px] bg-gradient-to-b from-transparent to-gray-800 backdrop-blur-sm"></div>
       </div>
 
-      {/* Featured Games Section */}
-      <section className="py-12 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-8 text-gray-800">Featured Games</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white shadow-md rounded-lg overflow-hidden">
-              <img src="/images/home/cover.jpg" alt="Game 1" className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Game Title 1</h3>
-                <p className="text-gray-600 mb-4">$59.99</p>
-                <a href="/game/1" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Add to Cart</a>
-              </div>
-            </div>
-            <div className="bg-white shadow-md rounded-lg overflow-hidden">
-              <img src="/images/home/cover.jpg" alt="Game 2" className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Game Title 2</h3>
-                <p className="text-gray-600 mb-4">$49.99</p>
-                <a href="/game/2" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Add to Cart</a>
-              </div>
-            </div>
-            <div className="bg-white shadow-md rounded-lg overflow-hidden">
-              <img src="/images/home/cover.jpg" alt="Game 3" className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Game Title 3</h3>
-                <p className="text-gray-600 mb-4">$39.99</p>
-                <a href="/game/3" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Add to Cart</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Blurred Gradient Transition to Next Section */}
+      <section className="relative z-20">
+        {/* Next Section Content */}
+        <div className="relative z-20 py-12 px-4 md:px-8 bg-gray-800">
+          <h2 className="text-4xl font-bold text-center mb-8 text-white">
+            Featured Games
+          </h2>
+          <div className="max-w-7xl mx-auto">
+            {/* Add game cards or other content here */}
+            <ul className="flex flex-row">
+              <div className="max-w-xs mx-auto bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+                {/* Game Cover Image */}
+                <div className="relative">
+                  <img
+                    src="/images/home/cover.jpg"
+                    alt="Game Cover"
+                    className="w-full h-40 object-cover"
+                  />
+                  {/* Sale/Promotion Badge */}
+                  <span className="absolute top-2 right-2 bg-red-500 text-xs font-bold py-1 px-2 rounded-md">
+                    Sale
+                  </span>
+                </div>
 
-      {/* Categories Section */}
-      <section className="bg-gray-200 py-12 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-8 text-gray-800">Browse by Category</h2>
-          <div className="flex flex-wrap justify-center gap-8">
-            <div className="bg-white shadow-md rounded-lg p-6 text-center w-64">
-              <h3 className="text-xl font-semibold mb-4">Action</h3>
-              <p className="text-gray-600">Explore thrilling action games with high-octane excitement.</p>
-              <a href="/category/action" className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Explore</a>
-            </div>
-            <div className="bg-white shadow-md rounded-lg p-6 text-center w-64">
-              <h3 className="text-xl font-semibold mb-4">Adventure</h3>
-              <p className="text-gray-600">Embark on epic quests and discover new worlds.</p>
-              <a href="/category/adventure" className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Explore</a>
-            </div>
-            <div className="bg-white shadow-md rounded-lg p-6 text-center w-64">
-              <h3 className="text-xl font-semibold mb-4">RPG</h3>
-              <p className="text-gray-600">Dive into rich stories and character development.</p>
-              <a href="/category/rpg" className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Explore</a>
-            </div>
-            <div className="bg-white shadow-md rounded-lg p-6 text-center w-64">
-              <h3 className="text-xl font-semibold mb-4">Strategy</h3>
-              <p className="text-gray-600">Test your tactical skills with challenging strategy games.</p>
-              <a href="/category/strategy" className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400">Explore</a>
-            </div>
-          </div>
-        </div>
-      </section>
+                <div className="p-3">
+                  {/* Game Title */}
+                  <h3 className="text-lg font-semibold mb-1">Cyber Fantasy</h3>
 
-      {/* Promotions Section */}
-      <section className="py-12 px-4 md:px-8 bg-blue-500 text-white text-center">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Special Promotion</h2>
-          <p className="text-lg mb-6">Get 20% off your first purchase with code <span className="font-bold">WELCOME20</span>!</p>
-          <a href="/shop" className="bg-yellow-500 text-gray-800 py-2 px-6 rounded-lg font-semibold hover:bg-yellow-400 transition duration-300">Shop Now</a>
+                  {/* Game Price */}
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-md font-bold">$49.99</span>
+                    <span className="line-through text-gray-400 text-sm">
+                      $59.99
+                    </span>
+                  </div>
+
+                  {/* Get Now Button */}
+                  <button className="w-full bg-blue-500 py-1.5 rounded-md text-white font-medium text-sm hover:bg-blue-400 transition-colors duration-300">
+                    Get Now
+                  </button>
+                </div>
+              </div>
+            </ul>
+          </div>
         </div>
       </section>
     </div>
