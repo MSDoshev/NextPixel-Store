@@ -46,7 +46,13 @@ export default function StoreCards({ className }) {
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
-      cart.push({ id: game._id, name: game.title, quantity: 1 });
+      cart.push({
+        id: game._id,
+        image: game.image,
+        name: game.title,
+        price: game.price,
+        quantity: 1,
+      });
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
