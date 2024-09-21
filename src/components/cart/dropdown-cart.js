@@ -28,11 +28,20 @@ export default function CartDropdown() {
     (total, item) => total + item.quantity,
     0
   );
-  
+
   let totalPrice = 0;
   cartItems.forEach((item) => {
     totalPrice += item.price * item.quantity;
   });
+
+  const removeItemFromCart = (id) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cart", JSON.stringify(updatedCartItems));
+
+    const event = new CustomEvent("cartUpdated");
+    window.dispatchEvent(event);
+  };
 
   return (
     <div className="relative group">
@@ -59,9 +68,17 @@ export default function CartDropdown() {
                     ${item.price} x {item.quantity}
                   </p>
                 </div>
-                <p className="text-sm font-semibold text-sky-500">
-                  ${item.price * item.quantity}
-                </p>
+                <div className="flex flex-col justify-center items-center">
+                  <p className="text-sm font-semibold text-sky-500">
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </p>
+                  <button
+                    onClick={() => removeItemFromCart(item.id)}
+                    className="text-red-500 hover:text-red-600 font-bold ml-2"
+                  >
+                    Remove
+                  </button>
+                </div>
               </div>
             ))}
             <div className="flex justify-between font-bold text-lg border-t border-gray-600 pt-3 mt-2">
