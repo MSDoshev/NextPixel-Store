@@ -6,7 +6,6 @@ import CartDropdown from "../cart/dropdown-cart";
 
 export default async function MainHeader() {
   const result = await verifyAuth();
-  
 
   let authOptions = (
     <form action={logout} className="flex gap-2">
@@ -30,36 +29,25 @@ export default async function MainHeader() {
           NextPixel
         </Link>
       </div>
-      <nav>
-        <ul className="flex flex-row gap-5 items-end">
-          <li>
-            <Link
-              href="/news"
-              className="p-4 pb-7 border-b-white hover:border-b-2"
-            >
-              News
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/store"
-              className="p-4 pb-7 border-b-white hover:border-b-2"
-            >
-              Store
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className="p-4 pb-7 border-b-white hover:border-b-2"
-            >
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <nav className="pl-[300px]">
+        <Link href="/news" className="p-4 pb-7 border-b-white hover:border-b-2">
+          News
+        </Link>
 
-      {/* Cart Section */}
+        <Link
+          href="/store"
+          className="p-4 pb-7 border-b-white hover:border-b-2"
+        >
+          Store
+        </Link>
+
+        <Link
+          href="/contact"
+          className="p-4 pb-7 border-b-white hover:border-b-2"
+        >
+          Contact Us
+        </Link>
+      </nav>
 
       <CartDropdown />
       {authOptions}
