@@ -44,8 +44,8 @@ export default function CartDropdown() {
   };
 
   return (
-    <div className="relative group">
-      <button className="hover:text-sky-500 flex items-center font-semibold text-lg">
+    <div className="relative group ">
+      <button className="hover:text-sky-500 flex items-center">
         Cart ({totalItems})
       </button>
 

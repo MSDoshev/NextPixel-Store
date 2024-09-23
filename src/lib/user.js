@@ -69,3 +69,11 @@ export async function getUserById(userId) {
     throw new Error("USER_NOT_FOUND");
   }
 }
+
+export async function finishPurchase(items) {
+  const { userId, error } = await getSession();
+  const currentUser = await getUserById(userId);
+
+
+  
+}

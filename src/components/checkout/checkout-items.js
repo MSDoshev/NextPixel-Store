@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export default function CheckoutItems() {
   const [cartItems, setCartItems] = useState([]);
 
+  
   const fetchCartItems = () => {
     const storedCartItems = JSON.parse(localStorage.getItem("cart")) || [];
     setCartItems(storedCartItems);
@@ -14,11 +15,13 @@ export default function CheckoutItems() {
     fetchCartItems();
   }, []);
 
+ 
   let totalPrice = 0;
   cartItems.forEach((item) => {
     totalPrice += item.price * item.quantity;
   });
 
+ 
   const removeItemFromCart = (id) => {
     const updatedCartItems = cartItems.filter((item) => item.id !== id);
     setCartItems(updatedCartItems);
@@ -28,8 +31,40 @@ export default function CheckoutItems() {
     window.dispatchEvent(event);
   };
 
-  const handleFinishPurchase = () => {
-    alert("Thank you for your purchase!");
+  const handleFinishPurchase = async () => {
+    try {
+      
+      const orderData = {
+        items: cartItems,
+        totalPrice,
+      };
+
+      
+      const response = await fetch("/api/finish-purchase", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to complete purchase");
+      }
+
+      const result = await response.json();
+
+      alert("Thank you for your purchase!");
+      localStorage.removeItem("cart");
+      setCartItems([]);
+      const event = new CustomEvent("cartUpdated");
+      window.dispatchEvent(event);
+
+      console.log("Order Details:", result.order); 
+    } catch (error) {
+      console.error("Purchase error:", error);
+      alert("There was an error processing your purchase.");
+    }
   };
 
   return (
