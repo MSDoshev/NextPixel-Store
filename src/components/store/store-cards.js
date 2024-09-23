@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useFilter } from "@/context/FilterContext";
 
 export default function StoreCards({ className }) {
   const { filters } = useFilter();
   const [games, setGames] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -61,11 +63,16 @@ export default function StoreCards({ className }) {
     window.dispatchEvent(cartUpdatedEvent);
   };
 
+  const handleClick = (gameId) => {
+    router.push(`/store/${gameId}`);
+  };
+
   return (
     <ul className={`flex flex-col ${className}`}>
       {games.map((game) => (
         <li
           key={game._id}
+          onClick={() => handleClick(game._id)}
           className="relative flex flex-row gap-4 bg-white border overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer hover:z-10"
         >
           <img
@@ -92,7 +99,10 @@ export default function StoreCards({ className }) {
             <div className="mt-auto flex flex-col items-end m-4">
               <p className="text-lg font-medium text-gray-900">${game.price}</p>
               <button
-                onClick={() => addToCart(game)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  addToCart(game);
+                }}
                 className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300"
               >
                 Add to Cart
