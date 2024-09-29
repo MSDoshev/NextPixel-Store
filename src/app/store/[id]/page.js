@@ -1,9 +1,10 @@
 "use client";
 
+import Reviews from "@/components/store/store-reviews";
 import { useEffect, useState } from "react";
 
 export default function GameDetails({ params }) {
-  const { id } = params; 
+  const { id } = params;
   const [game, setGame] = useState(null);
 
   useEffect(() => {
@@ -77,6 +78,8 @@ export default function GameDetails({ params }) {
           >
             Add to Cart
           </button>
+
+          <Reviews gameId={id} />
         </div>
       </div>
     </div>
