@@ -6,7 +6,7 @@ export default function Home() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
         style={{
-          backgroundImage: "url('/images/home/background.png')",
+          backgroundImage: "url('/images/home/background2.jpeg')",
           height: "600px",
         }}
       ></div>
@@ -35,24 +35,20 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <ul className="flex flex-row">
               <div className="max-w-xs mx-auto bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
-                {/* Game Cover Image */}
                 <div className="relative">
                   <img
                     src="/images/home/cover.jpg"
                     alt="Game Cover"
                     className="w-full h-40 object-cover"
                   />
-                  {/* Sale/Promotion Badge */}
                   <span className="absolute top-2 right-2 bg-red-500 text-xs font-bold py-1 px-2 rounded-md">
                     Sale
                   </span>
                 </div>
 
                 <div className="p-3">
-                  {/* Game Title */}
                   <h3 className="text-lg font-semibold mb-1">Cyber Fantasy</h3>
 
-                  {/* Game Price */}
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-md font-bold">$49.99</span>
                     <span className="line-through text-gray-400 text-sm">
@@ -60,7 +56,6 @@ export default function Home() {
                     </span>
                   </div>
 
-                  {/* Get Now Button */}
                   <button className="w-full bg-blue-500 py-1.5 rounded-md text-white font-medium text-sm hover:bg-blue-400 transition-colors duration-300">
                     Get Now
                   </button>
