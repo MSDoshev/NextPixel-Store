@@ -23,17 +23,17 @@ export default function PurchaseHistory() {
   }, []);
 
   return (
-    <div className="p-10 w-full">
-      <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Purchase History</h1>
+    <div className="md:p-10 w-full mx-auto">
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">Purchase History</h1>
       {orders.length > 0 ? (
         <ul className="space-y-6">
           {orders.map((order) => (
             <li
               key={order._id}
-              className="border border-gray-300 rounded-lg p-6 bg-white shadow-lg transition-transform transform hover:scale-105 w-full"
+              className="border border-gray-300 rounded-lg p-4 md:p-6 bg-white shadow-lg transition-transform transform hover:scale-105 w-full"
             >
               <div className="mb-4">
-                <h2 className="text-2xl font-semibold text-gray-900">
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
                   Order #{order.orderNumber}
                 </h2>
                 <p className="text-gray-700">
@@ -48,12 +48,12 @@ export default function PurchaseHistory() {
                 {order.items.map((item) => (
                   <li
                     key={item.id}
-                    className="flex flex-row gap-4 bg-gray-50 border border-gray-200 rounded-lg p-4 transition-shadow duration-300 hover:shadow-md w-full"
+                    className="flex flex-col md:flex-row gap-4 bg-gray-50 border border-gray-200 rounded-lg p-4 transition-shadow duration-300 hover:shadow-md w-full"
                   >
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-32 h-32 object-cover rounded-lg shadow-md"
+                      className="w-full md:w-32 h-32 object-cover rounded-lg shadow-md"
                     />
                     <div className="flex flex-col flex-grow">
                       <h3 className="text-lg font-semibold text-gray-800">{item.name}</h3>
