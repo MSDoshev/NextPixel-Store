@@ -1,7 +1,10 @@
+"use client";
+
 import { useFilter } from "@/context/FilterContext";
 import Checkbox from "../ui/Checkbox";
+import { FaTimes } from "react-icons/fa";
 
-export default function StoreSidebar() {
+export default function StoreSidebar({ onClose }) {
   const { filters, setFilters } = useFilter();
 
   const genres = [
@@ -25,7 +28,6 @@ export default function StoreSidebar() {
   const platforms = ["Steam", "Xbox", "Nintendo", "PlayStation", "PC"];
 
   const handleCheckboxChange = (event) => {
-    console.log("Checkbox changed:", event.target);
     const { name, value, checked } = event.target;
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -34,6 +36,7 @@ export default function StoreSidebar() {
         : prevFilters[name].filter((item) => item !== value),
     }));
   };
+
   const handleSearchChange = (event) => {
     const { value } = event.target;
     setFilters((prevFilters) => ({
@@ -54,7 +57,13 @@ export default function StoreSidebar() {
   };
 
   return (
-    <div className="w-[25%] bg-stone-100 py-10">
+    <div className="bg-stone-100 py-10 h-full overflow-y-auto relative">
+      <button
+        className="lg:hidden absolute right-4 p-2 text-xl text-gray-600 hover:text-gray-800 focus:outline-none"
+        onClick={onClose}
+      >
+        <FaTimes />
+      </button>
       <div className="px-[20px]">
         <h3 className="font-bold text-xl mb-4">Search</h3>
         <input

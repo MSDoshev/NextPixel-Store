@@ -51,7 +51,7 @@ export default async function MainHeader() {
         </Link>
       </nav>
 
-      <nav className="absolute left-0 top-full bg-stone-900 w-full flex-col items-center space-y-4 py-4 text-center hidden peer-checked:flex z-50 lg:hidden">
+      <nav className="absolute left-0 top-full bg-gray-800 w-full flex-col items-center space-y-4 py-4 text-center hidden peer-checked:flex z-50 lg:hidden">
         <Link href="/news" className="block text-white hover:text-sky-500">
           News
         </Link>
