@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <div className="relative flex flex-col">
@@ -14,8 +12,8 @@ export default function Home() {
       <div className="absolute inset-0 bg-black opacity-50 z-20"></div>
 
       <div className="relative z-20 text-white flex flex-col items-center justify-center h-[600px]">
-        <h1 className="text-5xl font-bold mb-4">Welcome to NextPixel</h1>
-        <p className="text-xl mb-6">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">Welcome to NextPixel</h1>
+        <p className="md:text-xl mb-6 hidden md:block">
           Explore the latest and greatest video games all in one place.
         </p>
         <a
