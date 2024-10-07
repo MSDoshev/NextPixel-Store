@@ -6,65 +6,61 @@ import Wishlist from "@/components/profile/wishlist";
 import ListItem from "@/components/ui/ListItem";
 import UnorderedList from "@/components/ui/UnorderedList";
 
-export default function ProfileGeneral({user}) {
+export default function ProfileGeneral({ user }) {
   const [activeTab, setActiveTab] = useState("Profile");
-
-  console.log(`This is the current user: ` + user.name);
 
   const renderContent = () => {
     switch (activeTab) {
       case "Profile":
-        return <ProfileDetails user={user}/>;
+        return <ProfileDetails user={user} />;
       case "Wishlist":
         return <Wishlist />;
       case "Purchase History":
         return <PurchaseHistory />;
       case "Settings":
-        return <div>Settings Component</div>;
+        return <div className="p-4 text-gray-600">Settings Component</div>;
       default:
-        return <ProfileDetails />;
+        return <ProfileDetails user={user} />;
     }
   };
 
   return (
-    <div className="flex flex-row justify-center bg-white w-full">
-      <div className="flex basis-1/4 justify-center items-start bg-stone-200">
-        <UnorderedList className="w-[25%]">
+    <div className="flex flex-row bg-gray-100 h-screen">
+      <div className="flex flex-col w-1/4 p-6 bg-white shadow-lg rounded-lg">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">User Menu</h2>
+        <UnorderedList className="space-y-2">
           <ListItem
-            className={`font-semibold ${
-              activeTab === "Profile" ? "text-blue-500" : ""
+            className={`font-semibold p-2 rounded-lg hover:bg-blue-100 ${
+              activeTab === "Profile" ? "bg-blue-200 text-blue-600" : "text-gray-800"
             }`}
             onClick={() => setActiveTab("Profile")}
           >
             Profile
           </ListItem>
           <ListItem
-            className={`font-semibold ${
-              activeTab === "Wishlist" ? "text-blue-500" : ""
-            }`}
-            onClick={() => setActiveTab("Wishlist")}
-          >
-            Wishlist
-          </ListItem>
-          <ListItem
-            className={`font-semibold ${
-              activeTab === "Purchase History" ? "text-blue-500" : ""
+            className={`font-semibold p-2 rounded-lg hover:bg-blue-100 ${
+              activeTab === "Purchase History" ? "bg-blue-200 text-blue-600" : "text-gray-800"
             }`}
             onClick={() => setActiveTab("Purchase History")}
           >
             Purchase History
           </ListItem>
           <ListItem
-            className={`font-semibold ${
-              activeTab === "Settings" ? "text-blue-500" : ""
+            className={`font-semibold p-2 rounded-lg hover:bg-blue-100 ${
+              activeTab === "Wishlist" ? "bg-blue-200 text-blue-600" : "text-gray-800"
             }`}
-            onClick={() => setActiveTab("Settings")}
+            onClick={() => setActiveTab("Wishlist")}
           >
-            Settings
+            Wishlist
           </ListItem>
         </UnorderedList>
       </div>
-      {renderContent()}
+      <div className="flex flex-col w-3/4 p-8 bg-gray-50 overflow-y-auto">
+        <h1 className="text-3xl font-bold text-gray-900 mb-6">Welcome, {user.name}</h1>
+        <div className="bg-white shadow-lg rounded-lg p-6">
+          {renderContent()}
+        </div>
+      </div>
     </div>
   );
 }
