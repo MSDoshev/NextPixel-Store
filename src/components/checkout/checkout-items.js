@@ -64,14 +64,14 @@ export default function CheckoutItems() {
   };
 
   return (
-    <div className="py-[80px] px-[200px] w-full mx-auto">
+    <div className="md:px-[30px] lg:py-[80px] lg:px-[200px] w-full mx-auto">
       {cartItems.length > 0 ? (
-        <div className="space-y-4 flex flex-row justify-between gap-[200px]">
+        <div className="flex flex-col md:flex-row justify-between md:gap-[40px]">
           <div className="w-full max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500">
             {cartItems.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center p-4 rounded-lg shadow-sm space-x-6 "
+                className="flex items-center p-4 rounded-lg shadow-sm space-x-6"
               >
                 <Link href={`/store/${item.id}`}>
                   <img
@@ -104,8 +104,8 @@ export default function CheckoutItems() {
               </div>
             ))}
           </div>
-          <div className="flex flex-col w-[400px]">
-            <div className="border-b border-gray-700 pt-4 mt-4 flex justify-end gap-2 items-center">
+          <div className="flex flex-col px-2 md:px-0 md:w-[300px] mt-4 md:mt-0">
+            <div className="border-b border-gray-700 pt-4 flex justify-between items-center">
               <span className="text-xl font-bold">Total Price:</span>
               <span className="text-2xl font-bold text-sky-500">
                 ${totalPrice.toFixed(2)}

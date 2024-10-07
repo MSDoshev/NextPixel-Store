@@ -56,8 +56,8 @@ export default function Reviews({ gameId }) {
   };
 
   return (
-    <div className="mt-10">
-      <h2 className="text-2xl font-bold mb-4">Reviews</h2>
+    <div className="mt-5">
+      <h2 className="text-xl font-bold mb-4">Leave a review</h2>
 
       {currentUser && (
         <form onSubmit={handleSubmit} className="flex flex-col space-y-2 mb-4">
