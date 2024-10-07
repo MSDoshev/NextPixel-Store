@@ -1,4 +1,23 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation"; 
+
 export default function Home() {
+  const [featuredGames, setFeaturedGames] = useState([]);
+  const router = useRouter(); 
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      const response = await fetch("/api/games");
+      const data = await response.json();
+      const randomGames = data.sort(() => 0.5 - Math.random()).slice(0, 10);
+      setFeaturedGames(randomGames);
+    };
+
+    fetchGames();
+  }, []);
+
   return (
     <div className="relative flex flex-col">
       <div
@@ -31,35 +50,44 @@ export default function Home() {
             Featured Games
           </h2>
           <div className="max-w-7xl mx-auto">
-            <ul className="flex flex-row">
-              <div className="max-w-xs mx-auto bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
-                <div className="relative">
-                  <img
-                    src="/images/home/cover.jpg"
-                    alt="Game Cover"
-                    className="w-full h-40 object-cover"
-                  />
-                  <span className="absolute top-2 right-2 bg-red-500 text-xs font-bold py-1 px-2 rounded-md">
-                    Sale
-                  </span>
-                </div>
-
-                <div className="p-3">
-                  <h3 className="text-lg font-semibold mb-1">Cyber Fantasy</h3>
-
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-md font-bold">$49.99</span>
-                    <span className="line-through text-gray-400 text-sm">
-                      $59.99
-                    </span>
+            <div className="flex overflow-x-auto scrollbar-thin scrollbar-thumb-dark scrollbar-track-gray-900 py-4">
+              {featuredGames.map((game) => (
+                <div
+                  key={game._id}
+                  className="flex-shrink-0 w-64 bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 mx-2 flex flex-col"
+                >
+                  <div className="relative flex-grow">
+                    <img
+                      src={game.image}
+                      alt={`${game.title} Cover`}
+                      className="w-full h-48 object-cover"
+                    />
+                    {game.onSale && (
+                      <span className="absolute top-2 right-2 bg-red-500 text-xs font-bold py-1 px-2 rounded-md">
+                        Sale
+                      </span>
+                    )}
                   </div>
-
-                  <button className="w-full bg-blue-500 py-1.5 rounded-md text-white font-medium text-sm hover:bg-blue-400 transition-colors duration-300">
-                    Get Now
-                  </button>
+                  <div className="p-4 flex flex-col justify-between h-full">
+                    <h3 className="text-lg font-semibold mb-1">{game.title}</h3>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-md font-bold">${game.price}</span>
+                      {game.originalPrice && (
+                        <span className="line-through text-gray-400 text-sm">
+                          ${game.originalPrice}
+                        </span>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => router.push(`/store/${game._id}`)} 
+                      className="w-full bg-blue-500 py-2 rounded-md text-white font-medium text-sm hover:bg-blue-400 transition-colors duration-300"
+                    >
+                      Get Now
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </ul>
+              ))}
+            </div>
           </div>
         </div>
       </section>
