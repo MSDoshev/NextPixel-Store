@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className=" bg-slate-950 text-white py-8">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col gap-5 justify-between">
+        <div className="flex flex-col lg:flex-row gap-5 justify-between">
           <div className="flex flex-col md:w-96">
             <h2 className="text-xl font-bold">NextPixel</h2>
             <p className="mt-2 text-sm">
