@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+"use cleint";
+
+import { useEffect, useState, useCallback } from "react";
 import StarRating from "../ui/StartRating";
 
 export default function Reviews({ gameId }) {
@@ -7,11 +9,11 @@ export default function Reviews({ gameId }) {
   const [reviews, setReviews] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
-  const fetchGameReviews = async () => {
+  const fetchGameReviews = useCallback(async () => {
     const response = await fetch(`/api/games/${gameId}`);
     const gameData = await response.json();
     setReviews(gameData.reviews || []);
-  };
+  }, [gameId]);
 
   const fetchCurrentUser = async () => {
     const response = await fetch("/api/auth/user");
@@ -25,7 +27,7 @@ export default function Reviews({ gameId }) {
   useEffect(() => {
     fetchGameReviews();
     fetchCurrentUser();
-  }, [fetchGameReviews ,gameId]);
+  }, [fetchGameReviews, gameId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
