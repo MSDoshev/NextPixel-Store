@@ -25,7 +25,7 @@ export default function Reviews({ gameId }) {
   useEffect(() => {
     fetchGameReviews();
     fetchCurrentUser();
-  }, [gameId]);
+  }, [fetchGameReviews ,gameId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
